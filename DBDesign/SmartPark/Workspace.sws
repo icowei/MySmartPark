@@ -4,7 +4,8 @@
 
 <Workspace>
 	<Local Expanded="Yes">
-		<Model Expanded="Yes" ID="{32A17D43-74C6-4220-ACAF-CD7A5ACD2425}" Name="SmartPark" Type="{FF4B6538-9856-42CF-B9B9-304ED370CEAA}" URL="SmartPark.prj"/>
+		<Model Expanded="Yes" ID="{32A17D43-74C6-4220-ACAF-CD7A5ACD2425}" Loaded="No" Name="SmartPark" Type="{FF4B6538-9856-42CF-B9B9-304ED370CEAA}" URL="SmartPark.prj"/>
+		<Model Expanded="Yes" ID="{2986E3F8-28A9-465A-8E08-1C5137D16D67}" Name="SmartPark" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="SmartPark.pdm"/>
 	</Local>
 	<BrowserModule Name="Repository"/>
 </Workspace>
