@@ -5,7 +5,14 @@
     <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
     <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
     <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
-    <property name="hibernate.connection.username">system</property>
+    <property name="hibernate.connection.username">WEBADMIN</property>
     <property name="hibernate.connection.password">123456</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <mapping resource="edu/mysmartpark/hibernate/Regusers.hbm.xml"/>
+    <mapping resource="edu/mysmartpark/hibernate/Parkinglot.hbm.xml"/>
+    <mapping resource="edu/mysmartpark/hibernate/Berth.hbm.xml"/>
+    <mapping resource="edu/mysmartpark/hibernate/UserCar.hbm.xml"/>
+    <mapping resource="edu/mysmartpark/hibernate/ParkLog.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

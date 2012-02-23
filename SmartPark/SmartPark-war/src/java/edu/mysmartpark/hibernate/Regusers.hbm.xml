@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-2-23 15:44:30 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="edu.mysmartpark.hibernate.Regusers" table="REGUSERS" schema="WEBADMIN">
+        <comment>Registed users' base information.</comment>
+        <id name="userId" type="big_decimal">
+            <column name="USER_ID" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="userPhone" type="string">
+            <column name="USER_PHONE" length="20" not-null="true">
+                <comment>The phone number of the registered user.</comment>
+            </column>
+        </property>
+        <property name="userPwd" type="string">
+            <column name="USER_PWD" length="20" not-null="true">
+                <comment>The password of the registered user.</comment>
+            </column>
+        </property>
+        <property name="userPermission" type="big_decimal">
+            <column name="USER_PERMISSION" precision="22" scale="0" not-null="true">
+                <comment>User permission: normal/vip/free 0/1/2</comment>
+            </column>
+        </property>
+        <property name="userAccount" type="double">
+            <column name="USER_ACCOUNT" precision="126" scale="0" not-null="true">
+                <comment>no money/money 0/money</comment>
+            </column>
+        </property>
+        <set name="userCars" inverse="true">
+            <key>
+                <column name="USER_ID" precision="22" scale="0" not-null="true">
+                    <comment>The identifier of the registered user who own this car.</comment>
+                </column>
+            </key>
+            <one-to-many class="edu.mysmartpark.hibernate.UserCar" />
+        </set>
+    </class>
+</hibernate-mapping>

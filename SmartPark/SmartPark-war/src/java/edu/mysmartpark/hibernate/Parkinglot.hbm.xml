@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-2-23 15:44:30 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="edu.mysmartpark.hibernate.Parkinglot" table="PARKINGLOT" schema="WEBADMIN">
+        <id name="plId" type="big_decimal">
+            <column name="PL_ID" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="plAddrCity" type="string">
+            <column name="PL_ADDR_CITY" not-null="true">
+                <comment>The city where this parking lots locates.</comment>
+            </column>
+        </property>
+        <property name="plAddrStreet" type="string">
+            <column name="PL_ADDR_STREET" not-null="true">
+                <comment>The street of the city where this parking lots locates.</comment>
+            </column>
+        </property>
+        <property name="plAddrArea" type="string">
+            <column name="PL_ADDR_AREA">
+                <comment>The area of the city where this parking lot locates.</comment>
+            </column>
+        </property>
+        <property name="plAddrNo" type="big_decimal">
+            <column name="PL_ADDR_NO" precision="22" scale="0" not-null="true">
+                <comment>The street number of this parking lot.</comment>
+            </column>
+        </property>
+        <property name="plBerthnum" type="big_decimal">
+            <column name="PL_BERTHNUM" precision="22" scale="0" not-null="true">
+                <comment>The number of berthes in this parking lot.</comment>
+            </column>
+        </property>
+        <property name="plBerthrate" type="double">
+            <column name="PL_BERTHRATE" precision="126" scale="0" not-null="true">
+                <comment>The rate of parking costs in this parking lot.</comment>
+            </column>
+        </property>
+        <set name="berths" inverse="true">
+            <key>
+                <column name="PL_ID" precision="22" scale="0" not-null="true">
+                    <comment>The identifier of this parking lot where this berth locates.</comment>
+                </column>
+            </key>
+            <one-to-many class="edu.mysmartpark.hibernate.Berth" />
+        </set>
+    </class>
+</hibernate-mapping>

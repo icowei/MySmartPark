@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-2-23 15:44:30 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="edu.mysmartpark.hibernate.Berth" table="BERTH" schema="WEBADMIN">
+        <id name="berthId" type="big_decimal">
+            <column name="BERTH_ID" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="parkinglot" class="edu.mysmartpark.hibernate.Parkinglot" fetch="select">
+            <column name="PL_ID" precision="22" scale="0" not-null="true">
+                <comment>The identifier of this parking lot where this berth locates.</comment>
+            </column>
+        </many-to-one>
+        <property name="resFlag" type="big_decimal">
+            <column name="RES_FLAG" precision="22" scale="0" not-null="true">
+                <comment>Is this berth being reservated? 0/1</comment>
+            </column>
+        </property>
+        <property name="parkFlag" type="big_decimal">
+            <column name="PARK_FLAG" precision="22" scale="0" not-null="true">
+                <comment>Is any car parking on this berth now? 0/1</comment>
+            </column>
+        </property>
+        <set name="parkLogs" inverse="true">
+            <key>
+                <column name="BERTH_ID" precision="22" scale="0" not-null="true">
+                    <comment>The identifier of the berth.</comment>
+                </column>
+            </key>
+            <one-to-many class="edu.mysmartpark.hibernate.ParkLog" />
+        </set>
+    </class>
+</hibernate-mapping>
